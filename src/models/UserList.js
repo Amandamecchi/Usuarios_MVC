@@ -24,7 +24,9 @@ class UserList {
     }
 
     deleteUser(id){
-        this.users = this.users.filter(user => user.id != id);
+        const user = this.getUserById(id);
+        this.users = this.users.filter((user) => user.id !=String(id));
+        return user;
     }
 }
 
