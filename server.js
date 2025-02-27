@@ -11,7 +11,7 @@ const postRoutes = require ("./src/routes/postRoutes");
 
 
 app.use("/api/usuarios", usersRoutes);
-app.use("/api/post", postRoutes);
+app.use("/api/posts", postRoutes);
 
 const PORT = process.env.PORT || 4000;
 

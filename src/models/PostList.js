@@ -12,19 +12,7 @@ class PostList {
     }
 
     getPostById (id){
-        const post = this.find(post => post.id == id);
-        if (!post) throw new Error("postagem não encontrada")
-        return post;
-    }
-    
-
-    
-    getPostById(id){
-        const post = this.post.find(post => post.id == id);
-        if (!post) {
-            throw new Error("Não foi possível encontrar esse post");
-        }
-        return post;
+        return this.posts.find(post => post.id === id);
     }
 
     updatePost(id, updateData){
