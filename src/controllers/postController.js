@@ -1,10 +1,10 @@
 const Post = require('../models/Post');
-const PostList = require('../models/PostList');
+const PostList = require('../models/postList');
 const { post } = require('../routes/usersRoutes');
 
 const lista = new PostList();
-lista.addPost(new Post("imagem", 32, "hahaha"));
-lista.addPost(new Post("imagem", 12, "hehehe"));
+lista.addPost(new Post('imagem', 32, 'hahaha'));
+lista.addPost(new Post('imagem', 12, 'hehehe'));
 
 const router = {
     getAllPost: (req, res) => {
@@ -33,19 +33,18 @@ const router = {
         }
     },
 
-    updatePost(id, updateData) {
-        const post = this.posts.find(post => post.id === id);
-        if (!post) {
-            throw new Error("Post não encontrado");
+    updatePost: (req, res) => {
+        try {
+        res.status(200).json(lista.updatePost(req.params.id, req.body));
+        } catch (error) {
+            res.status(400).json({ message: "Não foi possível atualizar o post" });
         }
-        Object.assign(post, updateData);
-        return post;
     },
     
 
     deletePost: (req, res) => {
         lista.deletePost(req.params.id);
-res.status(200).json({ message: "Post deletado com sucesso", IdDeletado: req.params.id });
+        res.status(200).json({ message: "Usuário deletado com sucesso", IdDeletado: req.params.id });
     }
 };
 

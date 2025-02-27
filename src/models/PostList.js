@@ -22,7 +22,7 @@ class PostList {
     }
 
     deletePost(id){
-        this.posts = this.post.filter((post) => post.id !=String(id));
+        this.posts = this.posts.filter((post) => post.id !=String(id));
     }
 }
 
