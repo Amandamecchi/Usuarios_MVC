@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+const Post = require('../models/PostModel');
 const PostList = require('../models/postList');
 const { post } = require('../routes/usersRoutes');
 

@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/UserModel');
 const UserList = require('../models/UserList');
 
 const lista = new UserList();
@@ -19,11 +19,11 @@ const router = {
 
     addUser: (req, res) => {
         try {
-            const { name, email, age } = req.body;
-            if (!name || !email || age === undefined) {
+            const { nome, email, age } = req.body;
+            if (!nome || !email || age === undefined) {
                 throw new Error("Todos os campos são obrigatórios");
             }
-            const newUser = new User(name, email, age);
+            const newUser = new User(nome, email, age);
             lista.addUser(newUser);
             res.status(201).json(newUser);
         } catch (error) {
@@ -42,7 +42,19 @@ const router = {
     deleteUser: (req, res) => {
         lista.deleteUser(req.params.id);
         res.status(200).json({ message: "Usuário deletado com sucesso", IdDeletado: req.params.id });
+    },
+
+createUser: async (req, res) => {
+    try {
+        const { nome, email, senha } = req.body;
+        const photo = req.file ? req.file.filenome : null;
+        const user = await User.createUsuarios({ nome, email, senha, photo });
+        res.status(201).json(user);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao criar usuário", error });
     }
+}
+
 };
 
 module.exports = router;
