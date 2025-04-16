@@ -57,4 +57,4 @@ createUser: async (req, res) => {
 
 };
 
-module.exports = router;
+module.exports = {getAllUsers, getUserById, addUser, updateUser, deleteUser, createUser};
