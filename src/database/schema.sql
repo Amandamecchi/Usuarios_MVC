@@ -6,7 +6,7 @@ CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE post (
@@ -17,7 +17,7 @@ CREATE TABLE post (
     usuario_id INTEGER REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
-INSERT INTO  usuarios (name, email, senha) VALUES
+INSERT INTO  usuarios (nome, email, senha) VALUES
 ('Flavia', 'flavia@example.com', 'P@lmeiras'),
 ('Giovanna', 'giovanna@example.com', 'IceCreamPopCorn'),
 ('Julia', 'julia@example.com', 'jujuDoPix');

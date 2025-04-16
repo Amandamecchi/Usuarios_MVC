@@ -10,7 +10,7 @@ const usersRoutes = require ("./src/routes/usersRoutes");
 const postRoutes = require ("./src/routes/postRoutes");
 
 
-app.use("/api/usuarios", usersRoutes);
+app.use("/api/users", usersRoutes);
 app.use("/api/posts", postRoutes);
 
 const PORT = process.env.PORT || 4000;
