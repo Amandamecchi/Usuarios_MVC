@@ -1,7 +1,7 @@
-const PostList = require('../models/PostList'); // Certifique-se de que o modelo PostList existe
-const Post = require('../models/Post'); // Certifique-se de que o modelo Post existe
+const PostList = require('../models/PostList'); 
+const Post = require('../models/Post');
 
-const lista = new PostList(); // Inicializando a lista de posts
+const lista = new PostList(); 
 
 const post1 = new Post("https://picsum.photos/200/300", 10, 2, 3);
 lista.addPost(post1);

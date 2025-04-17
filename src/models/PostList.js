@@ -1,35 +1,35 @@
 class PostList {
-    constructor(){
-        this.posts = [];
+    constructor() {
+        this.posts = []; // Inicializando a lista de posts como um array vazio
     }
 
-    addPost(post){
-        this.post.push(post);
+    addPost(post) {
+        this.posts.push(post); // Adicionando o post à lista
     }
-    getAllPosts(){
-        return this.posts;
+
+    getAllPost() {
+        return this.posts; // Retornando todos os posts
     }
-    getPostById(id){
-        const post = this.post.find(post => post.id === id);
-        if (!post) throw new Error('Post not found');
+
+    getPostById(id) {
+        const post = this.posts[id];
+        if (!post) {
+            throw new Error("Post não encontrado");
+        }
         return post;
     }
-    updatePost(id){
-        const post = this.find(post => post.id === id);
-        if (!post) throw new Error('Post not found');
-        return post;
-    }
-    updatePost(id, updateData){
+
+    updatePost(id, updatedData) {
         const post = this.getPostById(id);
-        Object.assign(post, updateData);
+        Object.assign(post, updatedData); // Atualizando os dados do post
         return post;
     }
-    deletePost(id){
-        this.post = this.posts.filter(post => post.id !== id);
-    }
-    getPost(id){
-        return this.posts.find(post => post.id === id);
-    }
 
+    deletePost(id) {
+        const post = this.getPostById(id);
+        this.posts.splice(id, 1); // Removendo o post da lista
+        return post;
+    }
 }
+
 module.exports = PostList;
