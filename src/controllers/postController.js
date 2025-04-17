@@ -1,7 +1,10 @@
-const Post = require('../models/PostModel');
-const { post } = require('../routes/usersRoutes');
+const PostList = require('../models/PostList'); // Certifique-se de que o modelo PostList existe
+const Post = require('../models/Post'); // Certifique-se de que o modelo Post existe
 
+const lista = new PostList(); // Inicializando a lista de posts
 
+const post1 = new Post("https://picsum.photos/200/300", 10, 2, 3);
+lista.addPost(post1);
 
 const router = {
     getAllPost: (req, res) => {

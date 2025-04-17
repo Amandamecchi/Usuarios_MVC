@@ -1,15 +1,12 @@
-require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const router = express.Router();
-const usersControllers = require("../controllers/usersController");
-const upload = require('../config/upload');
+const usersController = require("../controllers/usersController");
 
 /**
  * @swagger
  * tags:
- *   name: Usuários
- *   description: Gerenciamento de usuários
+ *   name: Users:
+ *   description: Gerenciamento de Users
  */
 
 /**
@@ -17,19 +14,19 @@ const upload = require('../config/upload');
  * /api/users:
  *   get:
  *     summary: Lista todos os usuários
- *     tags: [Usuários]
+ *     tags: [Users]
  *     responses:
  *       200:
- *         description: Lista de usuários
+ *         description: Lista de Users
  */
-router.get('/user', usersControllers.getAllUsers);
+router.get('/user', usersController.getAllUsers);
 
 /**
  * @swagger
  * /api/users/{id}:
  *   get:
  *     summary: Busca usuario por ID
- *     tags: [Usuários]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -42,10 +39,7 @@ router.get('/user', usersControllers.getAllUsers);
  *       404:
  *         description: Usuuario não encontrado
  */
-router.get('/user/:id', usersControllers.getUserById);
-
-
-
+router.get('/user/:id', usersController.getUserById);
 
 /**
  * @swagger
@@ -71,7 +65,7 @@ router.get('/user/:id', usersControllers.getUserById);
  *       201:
  *         description: Ususario criado
  */
-router.post('/', upload.single('photo'), usersControllers.createUser);
+router.post('/', usersController.addUser);
 
 /**
  * @swagger
@@ -89,7 +83,7 @@ router.post('/', upload.single('photo'), usersControllers.createUser);
  *       200:
  *         description: Usuario deletado
  */
-router.delete('/user/:id', usersControllers.deleteUser);
+router.delete('/user/:id', usersController.deleteUser);
 
 /**
 * @swagger
@@ -118,9 +112,7 @@ router.delete('/user/:id', usersControllers.deleteUser);
 *       200:
 *         description: Usuario atualizado
 */
-router.put('/user/:id', usersControllers.updateUser);
-
-
+router.put('/user/:id', usersController.updateUser);
 
 //router.post('/user', usersControllers.addUser);
 //router.get('/:id/posts', usersControllers.getPostsByUserId);
