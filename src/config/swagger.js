@@ -10,13 +10,6 @@ const options = {
             version: '1.0.0',
             description: 'API para gerenciamento de usuários e post',
         },
-        servers: [
-            {
-              url: 'http://localhost:4000/api',
-              description: 'Servidor local',
-
-            },
-        ],
     },
     apis: ['./src/routes/*.js'], // <- Caminho das suas rotas
 };

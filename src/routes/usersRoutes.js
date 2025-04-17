@@ -46,7 +46,7 @@ router.get('/user/:id', usersController.getUserById);
  * /api/users:
  *   post:
  *     summary: Cria um novo usuário
- *     tags: [Usuarios]
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
@@ -72,7 +72,7 @@ router.post('/', usersController.addUser);
  * /api/users/{id}:
  *   delete:
  *     summary: Deleta um usuario
- *     tags: [Usuarios]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -90,7 +90,7 @@ router.delete('/user/:id', usersController.deleteUser);
 * /api/users/{id}:
 *   put:
 *     summary: Atualiza um usuario
-*     tags: [Ususario]
+*     tags: [Users]
 *     parameters:
 *       - in: path
 *         name: id
@@ -113,8 +113,5 @@ router.delete('/user/:id', usersController.deleteUser);
 *         description: Usuario atualizado
 */
 router.put('/user/:id', usersController.updateUser);
-
-//router.post('/user', usersControllers.addUser);
-//router.get('/:id/posts', usersControllers.getPostsByUserId);
 
 module.exports = router;
