@@ -1,9 +1,7 @@
 const Post = require('../models/PostModel');
 const { post } = require('../routes/usersRoutes');
 
-const lista = new PostList();
-lista.addPost(new Post('imagem', 32, 'hahaha'));
-lista.addPost(new Post('imagem', 12, 'hehehe'));
+
 
 const router = {
     getAllPost: (req, res) => {

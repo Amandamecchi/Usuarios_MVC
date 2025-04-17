@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const router = express.Router();
-const usersControllers = require("../controllers/usersControllers");
+const usersControllers = require("../controllers/usersController");
 const upload = require('../config/upload');
 
 /**
