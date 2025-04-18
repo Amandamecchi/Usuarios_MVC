@@ -5,7 +5,7 @@ const usersController = require("../controllers/usersController");
 /**
  * @swagger
  * tags:
- *   name: Users:
+ *   name: Users
  *   description: Gerenciamento de Users
  */
 
@@ -25,7 +25,7 @@ router.get('/user', usersController.getAllUsers);
  * @swagger
  * /api/users/{id}:
  *   get:
- *     summary: Busca usuario por ID
+ *     summary: Busca usuários por ID
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -35,9 +35,9 @@ router.get('/user', usersController.getAllUsers);
  *           type: integer
  *     responses:
  *       200:
- *         description: Usuario não encontrado
+ *         description: Usuário não encontrado
  *       404:
- *         description: Usuuario não encontrado
+ *         description: Usuário não encontrado
  */
 router.get('/user/:id', usersController.getUserById);
 
@@ -56,22 +56,37 @@ router.get('/user/:id', usersController.getUserById);
  *             properties:
  *               name:
  *                 type: string
- *               house_id:
+ *               user_id:
  *                 type: integer
  *               photo:
  *                 type: string
  *                 format: binary
  *     responses:
  *       201:
- *         description: Ususario criado
+ *         description: Usuário criado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ * 
+ *                 name:
+ *                   type: string
+ *                 user_id:
+ *                   type: integer
+ *                 photo:
+ *                   type: string
  */
+
 router.post('/', usersController.addUser);
 
 /**
  * @swagger
  * /api/users/{id}:
  *   delete:
- *     summary: Deleta um usuario
+ *     summary: Deleta um usuário
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -81,7 +96,7 @@ router.post('/', usersController.addUser);
  *           type: integer
  *     responses:
  *       200:
- *         description: Usuario deletado
+ *         description: Usuário deletado
  */
 router.delete('/user/:id', usersController.deleteUser);
 
@@ -106,7 +121,7 @@ router.delete('/user/:id', usersController.deleteUser);
 *             properties:
 *               name:
 *                 type: string
-*               house_id:
+*               user_id:
 *                 type: integer
 *     responses:
 *       200:
