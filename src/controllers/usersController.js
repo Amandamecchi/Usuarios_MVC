@@ -1,6 +1,6 @@
 const UserModel = require('../models/UserModel');
 const UserList = require('../models/UserList');
-const User = require('../models/User'); // Adicionando a importação da classe User
+const User = require('../models/User'); 
 
 const lista = new UserList();
 lista.addUser(new User ('Amanda', 'amanda@gmail.com', '12'));
@@ -85,7 +85,7 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
 try {
-    const { name, email, password } = req.body;
+    const { nome, email, password } = req.body;
     const photo = req.file ? req.file.filename : null;
     const user = await UserModel.createUser({ nome, email, senha, photo });
     res.status(201).json(user);

@@ -22,7 +22,7 @@ const createUser = async (nome, email, senha, photo) => {
 
     );
 
-    return result[0];
+    return result.rows[0];
 };
 
 const updateUser = async (id, data) => {

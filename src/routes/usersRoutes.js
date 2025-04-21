@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const upload = require('../config/upload');
 const usersController = require("../controllers/usersController");
+
+
 
 /**
  * @swagger
