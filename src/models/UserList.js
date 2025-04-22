@@ -7,7 +7,7 @@ class UserList{
         this.users.push(user);
     }
 
-    getUsers() {
+    getAllUsers() {
         return this.users;
     }
 
